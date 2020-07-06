@@ -36,57 +36,135 @@ from typing import List  # noqa: F401
 # Set MOD Key
 mod = "mod4"
 # Terminal
-myTerm = "bash"
+myTerm = "terminal"
 # Config file location
 myConfig = "~/.config/qtile/config.py"
 
 keys = [
-    # Switch between windows in current stack pane
-    Key([mod], "k", lazy.layout.down()),
-    Key([mod], "j", lazy.layout.up()),
-
-    # Move windows up or down in current stack
-    Key([mod, "control"], "k", lazy.layout.shuffle_down()),
-    Key([mod, "control"], "j", lazy.layout.shuffle_up()),
-
-    # Switch window focus to other pane(s) of stack
-    Key([mod], "space", lazy.layout.next()),
-
-    # Swap panes of split stack
-    Key([mod, "shift"], "space", lazy.layout.rotate()),
-
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
     Key([mod], "Return", lazy.spawn("xterm")),
-
-    Key([mod], "b", lazy.spawn(myTerm)),
-    Key([mod], "v", lazy.spawn(myTerm+" -e vim")),
-    Key([mod], "o", lazy.spawn("./Documents/scripts/dmenu-programs.sh")),
-    Key([mod, "shift"], "o", lazy.spawn("dmenu_recency")),
-    Key([mod], "F2", lazy.spawn("brave")),
-
-    # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout()),
-    Key([mod], "w", lazy.window.kill()),
+    Key([mod], "f", lazy.window.toggle_fullscreen()),
+    Key([mod], "q", lazy.window.kill()),
 
     Key([mod, "control"], "r", lazy.restart()),
     Key([mod, "control"], "q", lazy.shutdown()),
-    Key([mod], "r", lazy.spawncmd()),
+    Key([mod, "shift"], "r", lazy.spawncmd()),
+
+    ###################
+    ### Layout Keys ###
+    ###################
+
+    Key([mod], "n", lazy.layout.normalize()),
+    Key([mod], "space", lazy.next_layout()),
+    #Key([mod, "shift"], "space", lazy.layout.rotate()),
+    #Key([mod], "space", lazy.layout.next()),
+
+    # Change Focus
+    Key([mod], "Up", lazy.layout.up()),
+    Key([mod], "Down", lazy.layout.down()),
+    Key([mod], "Left", lazy.layout.left()),
+    Key([mod], "Right", lazy.layout.right()),
+    Key([mod], "k", lazy.layout.up()),
+    Key([mod], "j", lazy.layout.down()),
+    Key([mod], "h", lazy.layout.left()),
+    Key([mod], "l", lazy.layout.right()),
+
+    # Resize up, down, left, right
+    Key([mod, "control"], "l",
+        lazy.layout.grow_right(),
+        lazy.layout.grow(),
+        lazy.layout.increase_ratio(),
+        lazy.layout.delete(),
+        ),
+    Key([mod, "control"], "Right",
+        lazy.layout.grow_right(),
+        lazy.layout.grow(),
+        lazy.layout.increase_ratio(),
+        lazy.layout.delete(),
+        ),
+    Key([mod, "control"], "h",
+        lazy.layout.grow_left(),
+        lazy.layout.shrink(),
+        lazy.layout.decrease_ratio(),
+        lazy.layout.add(),
+        ),
+    Key([mod, "control"], "Left",
+        lazy.layout.grow_left(),
+        lazy.layout.shrink(),
+        lazy.layout.decrease_ratio(),
+        lazy.layout.add(),
+        ),
+    Key([mod, "control"], "k",
+        lazy.layout.grow_up(),
+        lazy.layout.grow(),
+        lazy.layout.decrease_nmaster(),
+        ),
+    Key([mod, "control"], "Up",
+        lazy.layout.grow_up(),
+        lazy.layout.grow(),
+        lazy.layout.decrease_nmaster(),
+        ),
+    Key([mod, "control"], "j",
+        lazy.layout.grow_down(),
+        lazy.layout.shrink(),
+        lazy.layout.increase_nmaster(),
+        ),
+    Key([mod, "control"], "Down",
+        lazy.layout.grow_down(),
+        lazy.layout.shrink(),
+        lazy.layout.increase_nmaster(),
+        ),
+
+    # Flip Layout Monadtall/Monadwide
+    Key([mod, "shift"], "f", lazy.layout.flip()),
+
+    #######################
+    ### Multimedia Keys ###
+    #######################
+
+    # Increase/Decrease Brightness
+    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 5")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 5")),
+
+    # Increase/Decreasy/Mute Volume
+    Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q set Master 5%-")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -q set Master 5%+")),
+
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
+    Key([], "XF86AudioStop", lazy.spawn("playerctl stop")),
+
+    ######################
+    ### My Keybindings ###
+    ######################
+
+    Key([mod], "r", lazy.spawn(myTerm+" -e ranger")),
+    Key([mod], "v", lazy.spawn(myTerm+" -e vim")),
+    Key([mod], "o", lazy.spawn("./Documents/scripts/dmenu-programs.sh")),
+    Key([mod, "shift"], "o", lazy.spawn("dmenu_recency")),
+    Key([mod, "control"], "o", lazy.spawn("./Documents/scripts/tremc_url.sh")),
+    Key([mod], "F2", lazy.spawn("brave")),
+    Key([mod], "F3", lazy.spawn("pcmanfm")),
+    Key([mod], "F4", lazy.spawn("./Documents/darkwiki/index.wiki")),
+    Key([mod], "F12", lazy.spawn("blurlock")),
+    Key([], "print", lazy.spawn("scrot")),
+    Key([mod], "0", lazy.spawn("./.config/qtile/sysact.sh")),
 ]
 
-##### GROUPS #####
-group_names = [("WWW", {'layout': 'monadtall'}),
-               ("DEV", {'layout': 'monadtall'}),
+##############
+### Groups ###
+##############
+
+group_names = [("DEV", {'layout': 'monadtall'}),
+               ("WWW", {'layout': 'monadtall'}),
                ("SYS", {'layout': 'monadtall'}),
+               ("GFX", {'layout': 'monadtall'}),
                ("DOC", {'layout': 'monadtall'}),
-               ("VBOX", {'layout': 'monadtall'}),
-               ("CHAT", {'layout': 'monadtall'}),
-               ("MUS", {'layout': 'monadtall'}),
-               ("VID", {'layout': 'monadtall'}),
-               ("GFX", {'layout': 'floating'})]
+               ("CHT", {'layout': 'monadtall'}),
+               ("EDT", {'layout': 'monadtall'}),
+               ("TXT", {'layout': 'monadtall'}),
+               ("CLI", {'layout': 'floating'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
@@ -94,14 +172,20 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
-##### DEFAULT THEME SETTINGS FOR LAYOUTS #####
+##########################################
+### Defautl Theme Settings For Layouts ###
+##########################################
+
 layout_theme = {"border_width": 1,
                 "margin": 6,
                 "border_focus": "556064",
                 "border_normal": "2F3D44"
                 }
 
-##### THE LAYOUTS #####
+###############
+### Layouts ###
+###############
+
 layouts = [
     #layout.MonadWide(**layout_theme),
     #layout.Bsp(**layout_theme),
@@ -132,112 +216,89 @@ layouts = [
     layout.Floating(**layout_theme)
 ]
 
-##### COLORS #####
-colors = [["#222D31", "#222D31"], # panel background
-          ["#434758", "#434758"], # background for current screen tab
-          ["#ffffff", "#ffffff"], # font color for group names
-          ["#ff5555", "#ff5555"], # border line color for current tab
-          ["#8d62a9", "#8d62a9"], # border line color for other tab and odd widgets
-          ["#668bd7", "#668bd7"], # color for the even widgets
-          ["#e1acff", "#e1acff"]] # window name
+############
+## COLORS ##
+############
 
-##### PROMPT #####
+colors = [["#222D31", "#222D31"], # color 0 background
+          ["#1F618D", "#1F618D"], # color 1 screen tab
+          ["#839192", "#839192"], # color 2 font group names
+          ["#AF601A", "#AF6015"], # color 3 widget cpu
+          ["#5DADE2", "#5DADE2"], # color 4 widget tem
+          ["#D7BDE2", "#D7BDE2"], # color 5 widget men
+          ["#73C6B6", "#73C6B6"], # color 6 widget hdd
+          ["#E59866", "#E59866"], # color 7 widget vol
+          ["#E1ACFF", "#E1ACFF"], # color 8 widget bat
+          ["#81A1C1", "#81A1C1"]] # color 9 widget date
+
+############
+## PROMPT ##
+############
+
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
-##### DEFAULT WIDGET SETTINGS #####
+#############################
+## DEFAULT WIDGET SETTINGS ##
+#############################
+
 widget_defaults = dict(
     font="Noto",
     fontsize = 13,
     padding = 3,
     background=colors[0]
 )
+
 extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.Sep(linewidth =0, padding = 10, foreground = colors[0]),
 
-                widget.Sep(linewidth =0, padding = 10, foreground = colors[0], background = colors[0]),
-               widget.GroupBox(font="Noto",
-                        fontsize = 11,
-                        margin_y = 3,
-                        margin_x = 0,
-                        padding_y = 5,
-                        padding_x = 3,
-                        borderwidth = 0,
-                        active = colors[2],
-                        inactive = colors[2],
-                        rounded = False,
-                        highlight_color = colors[1],
-                        highlight_method = "line",
-                        this_current_screen_border = colors[3],
-                        this_screen_border = colors [4],
-                        other_current_screen_border = colors[0],
-                        other_screen_border = colors[0],
-                        foreground = colors[2],
-                        background = colors[0]
-                        ),
-               widget.Prompt(
-                        prompt=prompt,
-                        font="Noto",
-                        padding=10,
-                        foreground = colors[3],
-                        background = colors[1]
-                        ),
-                widget.WindowName(
-                        font = "Noto",
-                        foreground = colors[6],
-                        padding = 3
-                        ),
-
-
-                widget.TextBox(
-                        text=" BAT ",
-                        foreground=colors[4],
-                        padding = 0
-                        ),
-                widget.Battery(
+                widget.GroupBox(font="Noto",
+                    fontsize = 13,
+                    margin_y = 3,
+                    margin_x = 0,
+                    padding_y = 5,
+                    padding_x = 3,
+                    borderwidth = 0,
+                    active = colors[2],
+                    inactive = colors[2],
+                    rounded = False,
+                    highlight_color = colors[1],
+                    highlight_method = "text",
+                    this_current_screen_border = colors[3],
+                    this_screen_border = colors [4],
+                    other_current_screen_border = colors[0],
+                    other_screen_border = colors[0],
                     foreground = colors[2],
-                    format = '{percent:2.0%}'
-                    ),
+                    background = colors[0]
+                ),
 
+                widget.Prompt(prompt=prompt, font="Noto", padding=10, foreground = colors[3], background = colors[1]),
 
-                widget.TextBox(
-                        text=" CPU",
-                        foreground=colors[2],
-                        padding = 0
-                        ),
-                widget.CPU(
-                    foreground = colors[2],
-                    format = '{load_percent}%'
+                widget.WindowName(font = "Noto", foreground = colors[6], padding = 3),
 
-                    ),
+                widget.TextBox(text=" CPU ", foreground=colors[2]),
+                widget.CPU(foreground = colors[2],format = '{load_percent}%'),
 
-                widget.TextBox(
-                        text=" MEM",
-                        foreground=colors[2],
-                        padding = 0
-                        ),
-                widget.Memory(
-                        foreground = colors[2],
-                        format = '{MemUsed}M'
-                        ),
+                widget.TextBox(text=" TEM ", foreground=colors[4]),
+                widget.ThermalSensor(foreground=colors[2], threshold = 90),
 
-                widget.TextBox(
-                       text=" TEM",
-                       foreground=colors[4]
-                       ),
-                widget.ThermalSensor(
-                       foreground=colors[2],
-                       threshold = 90
-                       ),
+                widget.TextBox(text=" MEM ", foreground=colors[2]),
+                widget.Memory(foreground = colors[2], format = '{MemUsed}M'),
 
+                widget.TextBox(text=" SSD ", foreground=colors[2]),
+
+                widget.TextBox(text=" BAT ", foreground=colors[4]),
+                widget.Battery(foreground = colors[2], format = '{percent:2.0%}'),
 
                 widget.TextBox(text=" VOL ", foreground=colors[2], background=colors[0]),
                 widget.Volume(foreground = colors[2]),
 
                 widget.Clock(foreground = colors[2], format='%Y-%m-%d %a %I:%M %p'),
+
                 widget.Sep(linewidth =0, padding = 10, foreground = colors[0]),
             ],
             24,
@@ -245,7 +306,10 @@ screens = [
     ),
 ]
 
-# Drag floating layouts.
+###########################
+## Drag floating layouts ##
+###########################
+
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(),
          start=lazy.window.get_position()),
