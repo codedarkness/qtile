@@ -55,7 +55,7 @@ config_files() {
 	echo ""
 }
 
-thmes() {
+themes() {
 	config-files/themes/themes.sh
 }
 

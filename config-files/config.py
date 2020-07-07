@@ -230,6 +230,7 @@ layouts = [
 ## COLORS ##
 ############
 
+#startColors
 colors = [["#222D31", "#222D31"], # color 0 background
           ["#1F618D", "#1F618D"], # color 1 screen tab
           ["#839192", "#839192"], # color 2 font group names
@@ -240,6 +241,7 @@ colors = [["#222D31", "#222D31"], # color 0 background
           ["#E59866", "#E59866"], # color 7 widget vol
           ["#E1ACFF", "#E1ACFF"], # color 8 widget bat
           ["#81A1C1", "#81A1C1"]] # color 9 widget date
+#endColors
 
 ############
 ## PROMPT ##
