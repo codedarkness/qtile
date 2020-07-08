@@ -97,7 +97,7 @@ until [ "$selection" = "0" ]; do
 
 	case $selection in
 		1) clear; arch_based   ;;
-		2) clear; debian_bases ;;
+		2) clear; debian_based ;;
 		3) clear; config_files  ; press_enter ;;
 		4) clear; themes       ;;
 		0) clear; exit ;;

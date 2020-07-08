@@ -1,13 +1,26 @@
 # qtile
 
-Another tiling window manager
+Qtile is written and configured entirely in Python, which means you can leverage the full power and flexibility of the language to make it fit your needs. Learn more about qtile [here](http://www.qtile.org/)
 
+Qtile ducumentations [here](http://docs.qtile.org/en/latest/)
 
+# What this does
+
+Install qtile for **Arch Based-Systems** and **Debian Based-Systems**
+
+* Debian based-systems
+	* Install dependencies
+	* Install from source
+	* Install from pip (stable)
+* Arch based-systems
+	* Qtile is in the AUR repositories.
+	* So easy.
+* Config files
+	* Copy some config files for this build
 
 # My Keybindings
 
-The MODKEY is set to the Super key (aka the Windows key).  I try to keep the
-keybindings consistent with all of my window managers.
+The MODKEY = MOD4 (windows key)
 
 | Keybinding | Action |
 | :--- | :--- |
