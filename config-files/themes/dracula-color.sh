@@ -25,13 +25,13 @@ echo " Changing qtile color to Dracula them"
 echo ""
 
 # Border focus window
-sed -i 's/"border_focus": ".*",/"border_focus": "C8C9CB",/g' $HOME/.config/qtile/config.py &&
+sed -i 's/"border_focus": ".*",/"border_focus": "5A5AA4",/g' $HOME/.config/qtile/config.py &&
 echo " Border focus color has been changed" || echo " Upsss! We have a problems"
 
 echo ""
 
 # Border unfocus window
-sed -i 's/"border_normal": ".*"/"border_normal": "DFDFDF"/g' $HOME/.config/qtile/config.py &&
+sed -i 's/"border_normal": ".*"/"border_normal": "383A59"/g' $HOME/.config/qtile/config.py &&
 echo " Border normal color has been changed" || echo " Upssssss! Not again!"
 
 echo ""
