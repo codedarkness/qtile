@@ -25,13 +25,13 @@ echo " Changing qtile color to Darkn them"
 echo ""
 
 # Border focus window
-sed -i 's/"border_focus": ".*",/"border_focus": "2B2B2B",/g' $HOME/.config/qtile/config.py &&
+sed -i 's/"border_focus": ".*",/"border_focus": "808080",/g' $HOME/.config/qtile/config.py &&
 echo " Border focus color has been changed" || echo " Upsss! We have a problems"
 
 echo ""
 
 # Border unfocus window
-sed -i 's/"border_normal": ".*"/"border_normal": "C0C0C0"/g' $HOME/.config/qtile/config.py &&
+sed -i 's/"border_normal": ".*"/"border_normal": "34495E"/g' $HOME/.config/qtile/config.py &&
 echo " Border normal color has been changed" || echo " Upssssss! Not again!"
 
 echo ""
@@ -50,7 +50,7 @@ echo ""
 sed -i '/#startColors/,/#endColors/c\
 \#startColors\
 colors = [["#14161B", "#14161B"], # color 0 background\
-          ["#34495E", "#34495E"], # color 1 screen tab\
+          ["#81A1C1", "#81A1C1"], # color 1 screen tab\
           ["#808080", "#808080"], # color 2 font group names\
           ["#AF601A", "#AF6015"], # color 3 widget cpu\
           ["#5DADE2", "#5DADE2"], # color 4 widget tem\

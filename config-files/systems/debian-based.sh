@@ -21,39 +21,90 @@
 #
 # -----------------------------------------------------------------
 
+install_x_server() {
+	echo ""
+	echo " Installing xorg display server"
+	echo ""
+	splep 2;
+
+	PKGS=(xorg lightdm lightdm-gtk-greeter)
+
+	sudo apt install -y "${PKGS[@]}" &&
+	echo " xorg and lightdm successfully installed"
+	echo ""
+	echo " Do not restart you computer yet, first you need to install"
+	echo " the desktop enviroment"
+	echo ""
+}
+
 install_software() {
-sudo apt install xorg
-sudo apt install lightdm lightdm-gtk-greeter
+	echo ""
+	echo " Installing dependencies and other essential software"
+	splee 2;
+	echo ""
 
-# Dunst
-sudo apt install libdbus-1-dev libx11-dev libxinerama-dev libxrandr-dev libxss-dev libglib2.0-dev libpango1.0-dev libgtk-3-dev libxdg-basedir-dev
+	PKGS=(libdbus-1-dev
+	libx11-dev
+	libxinerama-dev
+	libxrandr-dev
+	libxss-dev
+	libglib2.0-dev
+	libpango1.0-dev
+	libgtk-3-dev
+	libxdg-basedir-dev
+	gtk+3.0
+	scrot
+	xautolock
+	suckless-tools
+	i3lock
+	wget
+	curl)
 
-git clone https://github.com/dunst-project/dunst.git
-cd dunst
-make
-sudo make install
+	sudo apt install -y "${PKGS[@]}" &&
+	echo " Everything looks good so far" || echo " Something goes wrong!"
+	echo ""
 
-# GUI Apps
-sudo apt install lxappearance mousepad xfce4-power-manager xfce4-notifyd xfce4-appfinder pcmanfm
-nitrogen
+	echo " Cloning and installing dunst notify deamon"
+	echo ""
+	sleep 1;
 
-# CLI Apps
-sudo apt install vim ranger htop mplayer w3m w3m-img
+	git clone https://github.com/dunst-project/dunst.git
+	cd dunst
+	make
+	sudo make install
 
-# System software
-gtk+3.0
-scrot
-xautolock
-suckless-tools
-i3lock
-wget
+}
 
+gui-applications() {
 
+#xfce4-notifyd
 
+PKGS=(lxappearance
+mousepad
+xfce4-power-manager
+xfce4-appfinder
+pcmanfm
+nitrogen)
 
+sudo apt install -y "${PKGS[@]}"
 
+}
 
+cli-applications() {
+	echo ""
+	echo " Installing CLI Applications"
+	echo ""
+	sleep 2;
 
+	PKGS=(vim
+	ranger
+	htop
+	mplayer
+	w3m
+	w3m-img)
+
+	sudo apt install -y "${PKGS[@]}" &&
+	echo " Successfully installed"
 }
 
 install_dependencies() {
@@ -61,8 +112,10 @@ install_dependencies() {
 	echo " Installing dependencies for qtile"
 	echo ""
 	sleep 2;
-sudo apt install python-pip
-sudo apt install python3-pip
+
+	#0
+	sudo apt install python-pip
+	sudo apt install python3-pip
 	#1
 	sudo apt-get install libxcb-render0-dev
 	#2

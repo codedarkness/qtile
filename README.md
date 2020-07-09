@@ -43,3 +43,10 @@ The MODKEY = MOD4 (windows key)
 | `MODKEY + r` | switch focus to monitor 3 |
 | `MODKEY + period` | switch focus to next monitor |
 | `MODKEY + comma` | switch focus to prev monitor |
+
+# First
+
+You need to install first a Debian or Manjaro system without desktop enviroment, just the base system. Then you can install everythig using the dummy script.
+
+I'm too lazy to install Arch Linux and built my systems from scratch. That's why i use **Debian** and **Manjaro-Architech**!
+
