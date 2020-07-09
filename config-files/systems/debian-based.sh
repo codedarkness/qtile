@@ -21,12 +21,48 @@
 #
 # -----------------------------------------------------------------
 
+install_software() {
+sudo apt install xorg
+sudo apt install lightdm lightdm-gtk-greeter
+
+# Dunst
+sudo apt install libdbus-1-dev libx11-dev libxinerama-dev libxrandr-dev libxss-dev libglib2.0-dev libpango1.0-dev libgtk-3-dev libxdg-basedir-dev
+
+git clone https://github.com/dunst-project/dunst.git
+cd dunst
+make
+sudo make install
+
+# GUI Apps
+sudo apt install lxappearance mousepad xfce4-power-manager xfce4-notifyd xfce4-appfinder pcmanfm
+nitrogen
+
+# CLI Apps
+sudo apt install vim ranger htop mplayer w3m w3m-img
+
+# System software
+gtk+3.0
+scrot
+xautolock
+suckless-tools
+i3lock
+wget
+
+
+
+
+
+
+
+}
+
 install_dependencies() {
 	echo ""
 	echo " Installing dependencies for qtile"
 	echo ""
 	sleep 2;
-
+sudo apt install python-pip
+sudo apt install python3-pip
 	#1
 	sudo apt-get install libxcb-render0-dev
 	#2
@@ -92,10 +128,14 @@ until [ "$selection" = "0" ]; do
 	echo ""
 	echo " install qtile in debian based systems"
 	echo ""
-	echo " 1 - Install Dependencies"
-	echo " 2 - Install qtile from source"
-	echo " 3 - Install qtile (pip)"
-	echo " 0 - Exit"
+	echo " 1 - xorg and login manager"
+	echo " 2 - System software"
+	echo " 3 - GUI Applications"
+	echo " 4 - CLI Applications"
+	echo " 2 - Qtile Dependencies"
+	echo " 3 - Install qtile from source"
+	echo " 4 - Install qtile (pip)"
+	echo " 0 - Back"
 	echo ""
 	echo -n " Enter selection [1 - 0] : "
 	read selection

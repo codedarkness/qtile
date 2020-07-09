@@ -21,7 +21,6 @@
 #
 # -----------------------------------------------------------------
 
-slstatus &
 compton &
 nitrogen --restore &
 volumeicon &

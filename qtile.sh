@@ -42,15 +42,15 @@ config_files() {
 	echo " Copy config files to your system"
 	sleep 2;
 	mkdir ~/.config/qtile
-	cp -af config-files/autostart.sh ~/.config/qtile &&
+	cp -af config-files/configs/autostart.sh ~/.config/qtile &&
 	echo " Autostart file has been copied" || echo " Hooooooo!"
 	echo ""
 
-	cp -af config-files/config.py ~/.config/qtile &&
+	cp -af config-files/configs/config.py ~/.config/qtile &&
 	echo " qtile config file has been copied" || echo " Uppssss!"
 	echo ""
 
-	cp -af config-files/original_config.py ~/.config/qtile &&
+	cp -af config-files/configs/original_config.py ~/.config/qtile &&
 	echo " Everything looks Good" || echo " Did you brake something!"
 	echo ""
 }
