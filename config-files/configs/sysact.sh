@@ -29,8 +29,8 @@ sf="-sf #FAF9FA"
 nf="-nf #383A59"
 
 declare options=("Cancel
+Exit
 Lock-Screen
-Logout
 Shutdown
 Reboot
 Suspend
@@ -45,8 +45,8 @@ choice=$(
 
 case "$choice" in
 	Cancel)	exit 1 ;;
-	Lock-Screen)	blurlock ;;
 	Exit)		kill -TERM $(pidof -s qtile) ;;
+	Lock-Screen)	blurlock ;;
 	Shutdown)	systemctl poweroff ;;
 	Reboot)		systemctl reboot ;;
 	Suspend)	systemctl suspend ;;

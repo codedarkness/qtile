@@ -174,7 +174,7 @@ group_names = [("DEV", {'layout': 'monadtall'}),
                ("CHT", {'layout': 'monadtall'}),
                ("EDT", {'layout': 'monadtall'}),
                ("TXT", {'layout': 'monadtall'}),
-               ("CLI", {'layout': 'floating'})]
+               ("CLI", {'layout': 'monadtall'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 

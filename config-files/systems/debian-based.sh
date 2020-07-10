@@ -107,56 +107,6 @@ cli-applications() {
 	echo " Successfully installed"
 }
 
-install_dependencies() {
-	echo ""
-	echo " Installing dependencies for qtile"
-	echo ""
-	sleep 2;
-
-	#0
-	sudo apt install python-pip
-	sudo apt install python3-pip
-	#1
-	sudo apt-get install libxcb-render0-dev
-	#2
-	sudo apt-get install libffi-dev
-	#3
-	pip install xcffib
-	#4
-	sudo apt-get install libcairo2
-	#5
-	pip install --no-cache-dir cairocffi
-	#6
-	sudo apt-get install libpangocairo-1.0-0
-	#7
-	sudo apt-get install python-dbus
-
-	echo ""
-	echo " Now you can install qtile; from source or via pip"
-	echo ""
-}
-
-install_from_source() {
-	echo ""
-	echo " Installing qtile from source"
-	echo ""
-	sleep 2;
-
-	echo " Cloning qtile repo"
-	git clone git://github.com/qtile/qtile.git
-	cd qtile
-	pip install .
-}
-
-install_from_pip() {
-	echo ""
-	echo " Instaling qtile using pip"
-	echo ""
-	sleep 2;
-
-	pip install qtile
-}
-
 press_enter() {
 	echo ""
 	echo -n " Press Enter To Continue"
@@ -185,9 +135,7 @@ until [ "$selection" = "0" ]; do
 	echo " 2 - System software"
 	echo " 3 - GUI Applications"
 	echo " 4 - CLI Applications"
-	echo " 2 - Qtile Dependencies"
-	echo " 3 - Install qtile from source"
-	echo " 4 - Install qtile (pip)"
+	echo ""
 	echo " 0 - Back"
 	echo ""
 	echo -n " Enter selection [1 - 0] : "
@@ -195,9 +143,10 @@ until [ "$selection" = "0" ]; do
 	echo ""
 
 	case $selection in
-		1) clear; install_dependencies ; press_enter ;;
-		2) clear; install_from_sources ; press_enter ;;
-		3) clear; install_from_pip     ; press_enter ;;
+		1) clear; install_x_server ; press_enter ;;
+		2) clear; install_software ; press_enter ;;
+		3) clear; gui-applications ; press_enter ;;
+		4) clear; cli-applications ; press_enter ;;
 		0) clear; exit ;;
 		*) clear; incorrect_selection ; press_enter ;;
 	esac

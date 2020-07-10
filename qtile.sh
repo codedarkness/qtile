@@ -22,26 +22,24 @@
 # -----------------------------------------------------------------
 
 arch_based() {
-	echo ""
-	echo " Arch-Based"
-	echo " Installing qtile from repositories"
-	echo ""
-	sleep 1;
-
-	sudo pacman -S qtile &&
-	echo " qtile has been installed" || echo " Upss!"
-	echo ""
+	config-files/systems/arch-based.sh
 }
 
 debian_based() {
 	config-files/systems/debian-based.sh
 }
 
+install_qtile() {
+	config-files/systems/install-qtile.sh
+}
+
 config_files() {
 	echo ""
 	echo " Copy config files to your system"
 	sleep 2;
-	mkdir ~/.config/qtile
+
+	mkdir $HOME/.config/qtile
+
 	cp -af config-files/configs/autostart.sh $HOME/.config/qtile &&
 	echo " Autostart file has been copied" || echo " Hooooooo!"
 	echo ""
@@ -91,8 +89,10 @@ until [ "$selection" = "0" ]; do
 	echo ""
 	echo " 1 - Arch Based-Systems"
 	echo " 2 - Debian Based-Systems"
-	echo " 3 - Copy config file (new installation)"
-	echo " 4 - Themes"
+	echo " 3 - Install qtile"
+	echo " 4 - Copy config file (new installation)"
+	echo " 5 - Themes"
+	echo ""
 	echo " 0 - Exit"
 	echo ""
 	echo -n " Enter selection [1 - 0] : "
@@ -100,10 +100,11 @@ until [ "$selection" = "0" ]; do
 	echo ""
 
 	case $selection in
-		1) clear; arch_based   ;;
-		2) clear; debian_based ;;
-		3) clear; config_files  ; press_enter ;;
-		4) clear; themes       ;;
+		1) clear; arch_based    ;;
+		2) clear; debian_based  ;;
+		3) clear; install_qtile ;;
+		4) clear; config_files  ; press_enter ;;
+		5) clear; themes       ;;
 		0) clear; exit ;;
 		*) clear; incorrect_selection ; press_enter ;;
 	esac
