@@ -23,12 +23,38 @@
 
 install_x_server() {
 	echo ""
-	echo " Start Here"
+	echo " Installing x windows system and display manager"
+	echo ""
+	sleep 2;
+
+	sudo pacman -S --noconfirm --needed xorg-server lightdm lightdm-gtk-greeter &&
+	echo " x window system and display manager was installed " || echo " Uppsss"
+	echo ""
+	echo " Do not restart your computer yet, you need to install the desktop"
+	echo " eviroment firts."
+       	echo " Install the system utilities, gui and cli programs"
+	echo ""
 }
 
 install_software() {
 	echo " Installing system Utilities"
 	echo ""
+	echo ""
+	sleep 2;
+
+	sudo pacman -S --noconfirm --needed compton
+	sudo pacman -S --noconfirm --needed pacman-manager
+	sudo pacman -S --noconfirm --needed nm-connection-editor
+	sudo pacman -S --noconfirm --needed arandr
+	sudo pacman -S --noconfirm --needed urxvt
+	sudo pacman -S --noconfirm --needed
+	sudo pacman -S --noconfirm --needed
+	sudo pacman -S --noconfirm --needed
+	sudo pacman -S --noconfirm --needed
+	sudo pacman -S --noconfirm --needed
+	sudo pacman -S --noconfirm --needed
+	sudo pacman -S --noconfirm --needed
+	sudo pacman -S --noconfirm --needed
 }
 
 gui_applications() {
@@ -43,12 +69,12 @@ gui_applications() {
 	sudo pacman -S --noconfirm --needed transmission-desktop
 	sudo pacman -S --noconfirm --needed brave
 	sudo pacman -S --noconfirm --needed mouspad
-	sudo pacman -S --noconfirm --needed xfce-applinder
-	sudo pacman -S --noconfirm --needed
-	sudo pacman -S --noconfirm --needed
-	sudo pacman -S --noconfirm --needed
-	sudo pacman -S --noconfirm --needed
-	sudo pacman -S --noconfirm --needed
+	sudo pacman -S --noconfirm --needed xfce4-applinder
+	sudo pacman -S --noconfirm --needed nitrogen
+	sudo pacman -S --noconfirm --needed gimp
+	sudo pacman -S --noconfirm --needed volumeicon
+	sudo pacman -S --noconfirm --needed epdfviewer
+	sudo pacman -S --noconfirm --needed xfce4-power-manager-settings
 	sudo pacman -S --noconfirm --needed
 	sudo pacman -S --noconfirm --needed
 	sudo pacman -S --noconfirm --needed
@@ -73,7 +99,7 @@ cli_applications() {
 	sudo pacman -S --noconfirm --needed vim
 	sudo pacman -S --noconfirm --needed newsboat
 	sudo pacman -S --noconfirm --needed w3m
-	sudo pacman -S --noconfirm --needed
+	sudo pacman -S --noconfirm --needed htop
 	sudo pacman -S --noconfirm --needed
 }
 

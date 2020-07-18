@@ -30,7 +30,7 @@ debian_based() {
 }
 
 install_qtile() {
-	config-files/systems/install-qtile.sh
+	config-files/install-qtile.sh
 }
 
 config_files() {

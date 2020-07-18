@@ -61,3 +61,10 @@ colors = [["#1E1F29", "#1E1F29"], # color 0 background\
           ["#81A1C1", "#81A1C1"]] # color 9 widget date\
 \#endColors' $HOME/.config/qtile/config.py &&
 echo " Bar and Widgets colos had been change!" || echo " Shhh... Problems problems..."
+
+## dmenu custom
+sed -i 's/nb="-nb #.*"/nb="-nb #1E1F29"/g' ~/.config/qtile/sysact.sh &&
+sed -i 's/sb="-sb #.*"/sb="-sb #1E1F29"/g' ~/.config/qtile/sysact.sh &&
+sed -i 's/nf="-nf #.*"/nf="-nf #383A59"/g' ~/.config/qtile/sysact.sh &&
+echo " dmenu (sysact) colors has canged"
+echo ""
