@@ -197,18 +197,17 @@ layout_theme = {"border_width": 1,
 ###############
 
 layouts = [
-    #layout.MonadWide(**layout_theme),
     #layout.Bsp(**layout_theme),
     #layout.Stack(stacks=2, **layout_theme),
     #layout.Columns(**layout_theme),
     #layout.RatioTile(**layout_theme),
+    #layout.Tile(shift_windows=True, **layout_theme),
     #layout.VerticalTile(**layout_theme),
     #layout.Matrix(**layout_theme),
     #layout.Zoomy(**layout_theme),
     layout.MonadTall(**layout_theme),
     layout.Max(**layout_theme),
-    layout.Tile(shift_windows=True, **layout_theme),
-    layout.Stack(num_stacks=2),
+    layout.MonadWide(**layout_theme),
     layout.TreeTab(
          font = "Noto",
          fontsize = 13,
@@ -219,9 +218,9 @@ layouts = [
          active_fg = "000000",
          inactive_bg = "384323",
          inactive_fg = "a0a0a0",
-         padding_y = 5,
+         padding_y = 2,
          section_top = 10,
-         panel_width = 320
+         panel_width = 150
          ),
     layout.Floating(**layout_theme)
 ]
@@ -266,7 +265,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Sep(linewidth =0, padding = 10, foreground = colors[0]),
+                widget.Sep(linewidth =0, padding = 2, foreground = colors[0]),
 
                 widget.GroupBox(font = "Noto",
                     fontsize = 13,
@@ -305,9 +304,9 @@ screens = [
                 widget.TextBox(text = " MEM", foreground = colors[5]),
                 widget.Memory(foreground = colors[5], format = '{MemUsed}M'),
 
-                #widget.TextBox(text = ":", foreground = colors[2]),
-                #widget.TextBox(text = " SSD", foreground = colors[6]),
-                #widget.DF(foreground = colors[6], partition = '/', measure = 'G', warn_space = '46', update_interval = 60, visible_on_warn = False, format = '{f}'),
+                widget.TextBox(text = ":", foreground = colors[2]),
+                widget.TextBox(text = " SSD", foreground = colors[6]),
+                widget.DF(foreground = colors[6], warn_color = color[6], partition = '/', measure = 'G', warn_space = '46', update_interval = 60, visible_on_warn = False, format = '{uf}{m}'),
 
                 widget.TextBox(text = ":", foreground = colors[2]),
                 widget.TextBox(text = " BAT", foreground = colors[7]),
@@ -321,7 +320,7 @@ screens = [
 
                 widget.Clock(foreground = colors[9], format = '%a %-d %b %I:%M'),
 
-                widget.Sep(linewidth =0, padding = 10, foreground = colors[0]),
+                widget.Sep(linewidth =0, padding = 3, foreground = colors[0]),
             ],
             24,
         ),
@@ -362,6 +361,7 @@ floating_layout = layout.Floating(**layout_theme, float_rules=[
     {'wname': 'pinentry'},  # GPG key password entry
     {'wmclass': 'ssh-askpass'},  # ssh-askpass
     {'wname': 'alsamixer'},
+    {'wname': 'Nitrogen'},
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
