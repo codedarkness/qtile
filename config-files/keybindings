@@ -1,0 +1,21 @@
+# Stat with Qtile
+
+A full-featured, hackable tiling window manager written and configured in Python
+
+## Brief Keybindings
+
+The MODKEY4 = Windows Key
+
+| Keys        | Action               |
+| :---------- | :------------------- |
+| MOD+Enter   | Open Terminal (bash) |
+| MOD+q       | Close Window         |
+| MOD+Ctrl+r  | Restart Qtile        |
+| MOD+r       | Ranger Filemanager   |
+| MOD+v       | Open Vim             |
+| MOD+0       | System Account       |
+
+For more keybindings check the /.config/qtile/confy.py file. And change your terminal before installing.
+
+(press q to exit)
+

@@ -21,44 +21,42 @@
 #
 # -----------------------------------------------------------------
 
-arch_based() {
-	config-files/systems/arch-based.sh
-}
-
-debian_based() {
-	config-files/systems/debian-based.sh
-}
-
 install_qtile() {
-	config-files/install-qtile.sh
+	config-files/systems/install-qtile.sh
 }
 
 config_files() {
 	echo ""
 	echo " Copy config files to your system"
+	echo ""
+	echo " Copy this files just one time in your system"
 	sleep 2;
 
-	mkdir $HOME/.config/qtile
+	### Check for dir, if not found create it using the mkdir ###
+	dldir="$HOME/.config/qtile"
+	[ ! -d "$dldir" ] && mkdir -p "$dldir" &&
+	echo " qtile directory was created in .config/qtile" || echo " No way......"
+	echo ""
 
-	cp -af config-files/configs/autostart.sh $HOME/.config/qtile &&
+	cp -af config-files/configs/autostart.sh $HOME/.config/qtile/ &&
 	echo " Autostart file has been copied" || echo " Hooooooo!"
 	echo ""
 
-	cp -af config-files/configs/config.py $HOME/.config/qtile &&
+	cp -af config-files/configs/config.py $HOME/.config/qtile/ &&
 	echo " qtile config file has been copied" || echo " Uppssss!"
 	echo ""
 
-	cp -af config-files/configs/original_config.py $HOME/.config/qtile &&
-	echo " Everything looks Good" || echo " Did you brake something!"
-	echo ""
-
-	cp -af config-files/configs/sysact.sh $HOME/.config/qtile &&
+	cp -af config-files/configs/sysact.sh $HOME/.config/qtile/ &&
 	echo " system account file has been copied" || echo " Not again!!"
 	echo ""
 }
 
 themes() {
 	config-files/themes/themes.sh
+}
+
+keybindings() {
+	less config-files/keybindings
 }
 
 press_enter() {
@@ -76,22 +74,19 @@ until [ "$selection" = "0" ]; do
 	clear
 	echo ""
 	echo " DarknessCode"
-	echo "        _   _ _       "
-	echo "       | | (_) |      "
-	echo "   __ _| |_ _| | ___  "
-	echo "  / _' | __| | |/ _ \ "
-	echo " | (_| | |_| | |  __/ "
-	echo "  \__, |\__|_|_|\___| "
-	echo "     | |              "
-	echo "     |_|              "
+	echo "   ____  _   _ _       "
+	echo "  / __ \| | (_) |      "
+	echo " | |  | | |_ _| | ___  "
+	echo " | |  | | __| | |/ _ \ "
+	echo " | |__| | |_| | |  __/ "
+	echo "  \___\_\\__|_|_|\___| "
 	echo ""
 	echo " hackable tiling window manager written in Python"
 	echo ""
-	echo " 1 - Arch Based-Systems"
-	echo " 2 - Debian Based-Systems"
-	echo " 3 - Install qtile"
-	echo " 4 - Copy config file (new installation)"
-	echo " 5 - Themes"
+	echo " 1 - Install qtile"
+	echo " 2 - Copy config file (new installation)"
+	echo " 3 - Themes"
+	echo " 4 - Keybindings"
 	echo ""
 	echo " 0 - Exit"
 	echo ""
@@ -100,11 +95,10 @@ until [ "$selection" = "0" ]; do
 	echo ""
 
 	case $selection in
-		1) clear; arch_based    ;;
-		2) clear; debian_based  ;;
-		3) clear; install_qtile ;;
-		4) clear; config_files  ; press_enter ;;
-		5) clear; themes       ;;
+		1) clear; install_qtile ;;
+		2) clear; config_files   ; press_enter ;;
+		3) clear; themes        ;;
+		4) clear; keybindings   ;;
 		0) clear; exit ;;
 		*) clear; incorrect_selection ; press_enter ;;
 	esac

@@ -35,6 +35,7 @@ arch_based() {
 
 debian_based() {
 	echo ""
+	echo " Debian-Based"
 	echo " Installing dependencies for qtile"
 	echo ""
 	sleep 2;
@@ -109,9 +110,10 @@ until [ "$selection" = "0" ]; do
 	echo " install qtile from repos or from source"
 	echo ""
 	echo " 1 - Arch Based Systems (AUR Repos)"
+	echo ""
 	echo " 2 - Debian Besed Systems (Dependencies) "
-	echo " 3 - Install From Source"
-	echo " 4 - Install using pip"
+	echo " 3 - Install qtile From Source"
+	echo " 4 - Install qtile using pip"
 	echo ""
 	echo " 0 - Back"
 	echo ""

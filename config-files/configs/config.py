@@ -306,11 +306,11 @@ screens = [
 
                 widget.TextBox(text = ":", foreground = colors[2]),
                 widget.TextBox(text = " SSD", foreground = colors[6]),
-                widget.DF(foreground = colors[6], warn_color = color[6], partition = '/', measure = 'G', warn_space = '46', update_interval = 60, visible_on_warn = False, format = '{uf}{m}'),
+                widget.DF(foreground = colors[6], warn_color = colors[6], partition = '/', measure = 'G', warn_space = 50, update_interval = 60, visible_on_warn = False, format = '{uf}{m}'),
 
-                widget.TextBox(text = ":", foreground = colors[2]),
-                widget.TextBox(text = " BAT", foreground = colors[7]),
-                widget.Battery(foreground = colors[7], format = '{percent:2.0%}'),
+                #widget.TextBox(text = ":", foreground = colors[2]),
+                #widget.TextBox(text = " BAT", foreground = colors[7]),
+                #widget.Battery(foreground = colors[7], format = '{percent:2.0%}'),
 
                 widget.TextBox(text = ":", foreground = colors[2]),
                 widget.TextBox(text = " VOL", foreground = colors[8]),
@@ -362,6 +362,8 @@ floating_layout = layout.Floating(**layout_theme, float_rules=[
     {'wmclass': 'ssh-askpass'},  # ssh-askpass
     {'wname': 'alsamixer'},
     {'wname': 'Nitrogen'},
+    {'wname': 'Lxappearance'},
+    {'wname': 'Pacman-manager'},
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"

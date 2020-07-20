@@ -23,17 +23,16 @@
 
 echo " Changing qtile color to Dracula them"
 echo ""
+sleep 2;
 
 # Border focus window
 sed -i 's/"border_focus": ".*",/"border_focus": "5A5AA4",/g' $HOME/.config/qtile/config.py &&
 echo " Border focus color has been changed" || echo " Upsss! We have a problems"
-
 echo ""
 
 # Border unfocus window
 sed -i 's/"border_normal": ".*"/"border_normal": "383A59"/g' $HOME/.config/qtile/config.py &&
 echo " Border normal color has been changed" || echo " Upssssss! Not again!"
-
 echo ""
 
 # TreeTab layout colors
@@ -43,7 +42,6 @@ sed -i 's/active_fg = ".*",/active_fg = "1F618D",/g' $HOME/.config/qtile/config.
 sed -i 's/inactive_gb = ".*",/inactive_bg = "1E1F29",/g' $HOME/.config/qtile/config.py &&
 sed -i 's/inactive_fg = ".*",/inactive_fg = "85929E",/g' $HOME/.config/qtile/config.py &&
 echo " TreeTab layout colors had been change" || echo " Someting is wrong with you!"
-
 echo ""
 
 # Bar and Widgets colors
@@ -61,6 +59,7 @@ colors = [["#1E1F29", "#1E1F29"], # color 0 background\
           ["#81A1C1", "#81A1C1"]] # color 9 widget date\
 \#endColors' $HOME/.config/qtile/config.py &&
 echo " Bar and Widgets colos had been change!" || echo " Shhh... Problems problems..."
+echo ""
 
 ## dmenu custom
 sed -i 's/nb="-nb #.*"/nb="-nb #1E1F29"/g' ~/.config/qtile/sysact.sh &&
