@@ -23,10 +23,10 @@
 # -----------------------------------------------------------------
 
 font="-fn 'Noto-11'"
-nb="-nb #1E1F29"
-sb="-sb #1E1F29"
+nb="-nb #222D31"
+sb="-sb #222D31"
 sf="-sf #FAF9FA"
-nf="-nf #383A59"
+nf="-nf #4D5656"
 
 declare options=("Cancel
 Exit

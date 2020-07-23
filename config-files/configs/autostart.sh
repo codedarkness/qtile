@@ -31,7 +31,3 @@ xautolock -time 10 -locker blurlock &
 ff-theme-util &
 fix_xcursor &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
-## conky
-#conky -c $HOME/.config/qtile/conky_live &
-#conky -c $HOME/.config/qtile/conky_shortcuts &
