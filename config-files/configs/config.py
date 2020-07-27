@@ -265,7 +265,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Sep(linewidth =0, padding = 2, foreground = colors[0]),
+                widget.Sep(linewidth =0, padding = 3, foreground = colors[0]),
 
                 widget.Image(
                     background = colors[0],
