@@ -267,6 +267,13 @@ screens = [
             [
                 widget.Sep(linewidth =0, padding = 2, foreground = colors[0]),
 
+                widget.Image(
+                    background = colors[0],
+                    margin = 3,
+                    scale = True,
+                    filename = "~/.config/qtile/qtile.png"
+                ),
+
                 widget.GroupBox(font = "Noto",
                     fontsize = 13,
                     margin_y = 3,
@@ -323,6 +330,7 @@ screens = [
                 widget.Sep(linewidth =0, padding = 3, foreground = colors[0]),
             ],
             24,
+            background = colors[0],
         ),
     ),
 ]

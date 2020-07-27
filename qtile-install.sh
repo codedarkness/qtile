@@ -49,6 +49,10 @@ config_files() {
 	cp -af config-files/configs/sysact.sh $HOME/.config/qtile/ &&
 	echo " system account file has been copied" || echo " Not again!!"
 	echo ""
+
+	cp -af config-files/configs/qtile.png $HOME/.config/qtile/ &&
+	echo " qtile.png logo has been copied" || echo " It's not you! is the system..."
+	echo ""
 }
 
 themes() {
