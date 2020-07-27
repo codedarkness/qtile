@@ -187,7 +187,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 ##########################################
 
 layout_theme = {"border_width": 1,
-                "margin": 6,
+                "margin": 5,
                 "border_focus": "556064",
                 "border_normal": "2F3D44"
                 }
