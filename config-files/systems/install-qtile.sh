@@ -134,7 +134,7 @@ until [ "$selection" = "0" ]; do
 	echo " 1 - Arch Based Systems (AUR Repos)"
 	echo ""
 	echo " 2 - Debian Besed Systems (Dependencies) "
-	echo " 3 - Install qtile From Source"
+	echo " 3 - Install qtile From Source (Arch, Debian)"
 	echo " 4 - Install qtile using pip"
 	echo ""
 	echo " 5 - Change terminal"
