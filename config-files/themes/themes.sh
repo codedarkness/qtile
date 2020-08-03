@@ -22,15 +22,15 @@
 # -----------------------------------------------------------------
 
 dark-color() {
-	config-files/themes/dark-color.sh
+	config-files/themes/qtile-dark-color.sh
 }
 
 dracula-color() {
-	config-files/themes/dracula-color.sh
+	config-files/themes/qtile-dracula-color.sh
 }
 
 green-color() {
-	config-files/themes/green-color.sh
+	config-files/themes/qtile-green-color.sh
 }
 
 press_enter() {

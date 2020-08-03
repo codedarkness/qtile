@@ -22,7 +22,24 @@ Install qtile for **Arch Based-Systems** and **Debian Based-Systems**
 
 ![qtile - darknesscode](https://github.com/codedarkness/qtile/blob/master/config-files/qtile-b.png)
 
-# Keybindings
+## Software
+
+Here are the software that always install in my systems:
+
+* Compton
+* Ranger file manager
+* Nitrogen
+* Volumeicon
+* nm-applet
+* xfce4-power-manager
+* pacmac-tray
+* xautolock (blurlock)
+* ff-theme-util
+* fix_xcursor
+* bash (can be change)
+* dnust
+
+# Helpfull Keybindings for this buil
 
 The MODKEY = MOD4 (windows key)
 
