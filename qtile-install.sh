@@ -53,6 +53,20 @@ config_files() {
 	cp -af config-files/configs/qtile.png $HOME/.config/qtile/ &&
 	echo " qtile.png logo has been copied" || echo " It's not you! is the system..."
 	echo ""
+
+	while true; do
+		read -p " Copy (custome) Xresources [y - n] : " yn
+		case $yn in
+			[Yy]* )
+				cp -af config-files/configs/Xresources $HOME/.Xresources &&
+				echo " Xresourses has been copied" || echo " Something is not well!" ; break ;;
+			[Nn]* )
+				break ;;
+			* ) echo "Please answer yes or no." ;;
+		esac
+	done
+
+	echo ""
 }
 
 themes() {
