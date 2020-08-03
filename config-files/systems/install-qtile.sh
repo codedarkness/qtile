@@ -84,6 +84,28 @@ install_from_pip() {
 	pip install qtile
 }
 
+change-terminal() {
+	echo ""
+	echo " Change terminal in qtile.py custom file"
+	echo ""
+	echo " If you want to change the terminal you can do it here"
+	echo ""
+	sleep 2
+
+	while true; do
+		read -p " Change Terminal [y - n] : " yn
+		case $yn in
+			[Yy]* )
+				read -p " Which is your preffer terminal : " choice;
+				sed -i 's+myTerm = ".*"+myTerm = "'$choice'"+g' config-files/configs/qtile.py &&
+				echo " Your terminal ($choice) has been changed" || echo " Upsss!"; break ;;
+			[Nn]* )
+				break ;;
+			* ) echo "Please answer yes or no." ;;
+		esac
+	done
+}
+
 press_enter() {
 	echo ""
 	echo -n " Press Enter To Continue"
@@ -115,6 +137,8 @@ until [ "$selection" = "0" ]; do
 	echo " 3 - Install qtile From Source"
 	echo " 4 - Install qtile using pip"
 	echo ""
+	echo " 5 - Change terminal"
+	echo ""
 	echo " 0 - Back"
 	echo ""
 	echo -n " Enter selection [1 - 0] : "
@@ -122,10 +146,11 @@ until [ "$selection" = "0" ]; do
 	echo ""
 
 	case $selection in
-		1) clear; arch_based ; press_enter ;;
-		2) clear; debian_based ; press_enter ;;
+		1) clear; arch_based          ; press_enter ;;
+		2) clear; debian_based        ; press_enter ;;
 		3) clear; install_from_source ; press_enter ;;
-		4) clear; install_from_pip ; press_enter ;;
+		4) clear; install_from_pip    ; press_enter ;;
+		5) clear; chage-terminal     ; press_enter ;;
 		0) clear; exit ;;
 		*) clear; incorrect_selection ; press_enter ;;
 	esac

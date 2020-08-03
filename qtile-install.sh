@@ -35,7 +35,7 @@ config_files() {
 	### Check for dir, if not found create it using the mkdir ###
 	dldir="$HOME/.config/qtile"
 	[ ! -d "$dldir" ] && mkdir -p "$dldir" &&
-	echo " qtile directory was created in .config/qtile" || echo " No way......"
+	echo " qtile directory was created in .config/qtile" || echo " Qtile .config/qtile already exist!"
 	echo ""
 
 	cp -af config-files/configs/autostart.sh $HOME/.config/qtile/ &&
