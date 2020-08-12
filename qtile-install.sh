@@ -50,6 +50,10 @@ config_files() {
 	echo " system account file has been copied" || echo " Not again!!"
 	echo ""
 
+	cp -af config-files/configs/dmenu-programs.sh $HOME/.config/qtile/ &&
+	echo " dmenu custom file has been copied" || echo " It's happened again!!"
+	echo ""
+
 	cp -af config-files/configs/qtile.png $HOME/.config/qtile/ &&
 	echo " qtile.png logo has been copied" || echo " It's not you! is the system..."
 	echo ""
