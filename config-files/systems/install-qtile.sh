@@ -41,22 +41,22 @@ debian_based() {
 	sleep 2;
 
 	#0
-	sudo apt install python-pip
-	sudo apt install python3-pip
+	sudo apt install -y python-pip
+	sudo apt install -y python3-pip
 	#1
-	sudo apt-get install libxcb-render0-dev
+	sudo apt install -y libxcb-render0-dev
 	#2
-	sudo apt-get install libffi-dev
+	sudo apt install -y libffi-dev
 	#3
 	pip install xcffib
 	#4
-	sudo apt-get install libcairo2
+	sudo apt install -y libcairo2
 	#5
 	pip install --no-cache-dir cairocffi
 	#6
-	sudo apt-get install libpangocairo-1.0-0
+	sudo apt install -y libpangocairo-1.0-0
 	#7
-	sudo apt-get install python-dbus
+	sudo apt install -y  python-dbus
 
 	echo ""
 	echo " Now you can install qtile; from source or via pip"
