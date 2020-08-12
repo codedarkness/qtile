@@ -72,7 +72,7 @@ while true; do
 	read -p " Do you want to copy Xresources [y - n] : " yn
 	case $yn in
 		[Yy]* )
-			cp -af config-files/configs/themes/xresources/Xresources-dracula $HOME/.Xresources &&
+			cp -af config-files/themes/xresources/Xresources-dracula $HOME/.Xresources &&
 			echo " Xresources has been copy" || echo " Upsss! we have a problem here" ; break ;;
 		[Nn]* )
 			break ;;
