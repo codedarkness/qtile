@@ -46,7 +46,7 @@ from typing import List  # noqa: F401
 # Set MOD Key
 mod = "mod4"
 # Terminal
-myTerm = "terminal"
+myTerm = "urxvt"
 # Config file location
 myConfig = "~/.config/qtile/config.py"
 
@@ -151,18 +151,19 @@ keys = [
 
     Key([mod], "F2", lazy.spawn("brave")),
     Key([mod], "F3", lazy.spawn("pcmanfm")),
-    Key([mod], "F4", lazy.spawn("./Documents/darkwiki/index.wiki")),
     Key([mod], "F12", lazy.spawn("blurlock")),
 
     Key([mod], "r", lazy.spawn(myTerm+" -e ranger")),
     Key([mod], "v", lazy.spawn(myTerm+" -e vim")),
-    Key([mod], "o", lazy.spawn("./Documents/scripts/dmenu-programs.sh")),
+    Key([mod], "p", lazy.spawn(myTerm+" -e pyradio")),
+    Key([mod], "c", lazy.spawn(myTerm+" -e calcurse")),
+    Key([mod], "w", lazy.spawn("brave")),
 
     Key([mod, "shift"], "o", lazy.spawn("dmenu_recency")),
-    Key([mod, "control"], "o", lazy.spawn("./Documents/scripts/tremc_url.sh")),
+    Key([mod], "0", lazy.spawn("./.config/qtile/sysact.sh")),
+    Key([mod], "o", lazy.spawn("./.config/qtile/dmenu-programs.sh")),
 
     Key([], "Print", lazy.spawn("i3-scrot")),
-    Key([mod], "0", lazy.spawn("./.config/qtile/sysact.sh")),
 ]
 
 ##############
