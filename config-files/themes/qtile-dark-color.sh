@@ -68,6 +68,30 @@ sed -i 's/nf="-nf #.*"/nf="-nf #D5656"/g' ~/.config/qtile/sysact.sh &&
 echo " dmenu (sysact) colors has canged"
 echo ""
 
+## dmenu custom
+sed -i 's/nb="-nb #.*"/nb="-nb #14161B"/g' $HOME/.config/qtile/dmenu-programs.sh &&
+sed -i 's/sb="-sb #.*"/sb="-sb #14161B"/g' $HOME/.config/qtile/dmenu-programs.sh &&
+sed -i 's/nf="-nf #.*"/nf="-nf #383A59"/g' $HOME/.config/qtile/dmenu-programs.sh &&
+echo " dmenu programs colors has canged" || echo " Upssss!!!!"
+echo ""
+
+## change background color dnustrc
+sed -i 's/background\ = .*/background\ = \"#14161B"/g' $HOME/.config/dunst/dunstrc &&
+echo " dnust color scheme has been applied" || echo " No way!!!!"
+echo ""
+
+## changin the backgroun color for nitrogen
+sed -i 's/bgcolor=.*/bgcolor=#14161B/g' $HOME/.config/nitrogen/bg-saved.cfg &&
+echo " nitrogen background color has been applied" || echo " Maybe is you!!!!"
+echo ""
+
+## change background color in slick-greeter lightdm
+sudo sed -i 's/background-color=.*/background-color=#14161B/g' /etc/lightdm/slick-greeter.conf &&
+sudo sed -i 's/theme-name=.*/theme-name=Matcha-dark-azul/g' /etc/lightdm/slick-greeter.conf &&
+sudo sed -i 's/icon-theme-name=.*/icon-theme-name=Adwaita/g' /etc/lightdm/slick-greeter.conf &&
+echo " Slick-Greeter has been changed" || echo " Upsss!!!!"
+echo ""
+
 while true; do
 	read -p " Do you want to copy Xresources [y - n] : " yn
 	case $yn in
